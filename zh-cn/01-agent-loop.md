@@ -318,39 +318,39 @@ export async function* query(params: QueryParams) {
       ├─ startRelevantMemoryPrefetch()   ← while 循环外，整个 user turn 只触发一次
       │
       ▼
-  while(true) {  ←──────────────────────────────────────────────────────┐
-      │                                                                   │
-      ├─ startSkillDiscoveryPrefetch()   ← 每轮启动，与 API 调用并行     │
-      ├─ yield 'stream_request_start'                                     │
-      │                                                                   │
-      │  ── 消息准备（API 调用前）──────────────────────────────────     │
-      ├─ getMessagesAfterCompactBoundary()   ← 取 compact 边界后消息     │
-      ├─ applyToolResultBudget()             ← 工具结果大小限制          │
-      ├─ HISTORY_SNIP（feature gate）        ← 裁剪历史                  │
-      ├─ microcompact                        ← 微压缩                    │
-      ├─ CONTEXT_COLLAPSE（feature gate）    ← 折叠上下文                │
-      ├─ autocompact                         ← 自动压缩                  │
+  while(true) {  ←───────────────────────────────────────────────────────┐
+      │                                                                  │
+      ├─ startSkillDiscoveryPrefetch()   ← 每轮启动，与 API 调用并行        │
+      ├─ yield 'stream_request_start'                                    │
+      │                                                                  │
+      │  ── 消息准备（API 调用前）──────────────────────────────────        │
+      ├─ getMessagesAfterCompactBoundary()   ← 取 compact 边界后消息       │
+      ├─ applyToolResultBudget()             ← 工具结果大小限制             │
+      ├─ HISTORY_SNIP（feature gate）        ← 裁剪历史                    │
+      ├─ microcompact                        ← 微压缩                     │
+      ├─ CONTEXT_COLLAPSE（feature gate）    ← 折叠上下文                  │
+      ├─ autocompact                         ← 自动压缩                   │
       ├─ blocking limit? ──YES──→ return error                           │
-      │                                                                   │
-      │  ── 流式 API 调用 ─────────────────────────────────────────     │
-      ├─ callModel(prependUserContext(messages))  ← userContext 在此注入 │
+      │                                                                  │
+      │  ── 流式 API 调用 ─────────────────────────────────────────       │
+      ├─ callModel(prependUserContext(messages))  ← userContext 在此注入  │
       │     └─ yield 流式事件 ...                                         │
-      │                                                                   │
-      │  ── 工具执行 ──────────────────────────────────────────────     │
+      │                                                                 │
+      │  ── 工具执行 ──────────────────────────────────────────────       │
       ├─ 无 tool_use? ──YES──→ handleStopHooks() → return terminal       │
-      ├─ runTools()                          ← 执行工具调用              │
-      │     └─ yield 工具执行结果 ...                                     │
-      │                                                                   │
-      │  ── 工具执行后 ────────────────────────────────────────────     │
+      ├─ runTools()                          ← 执行工具调用                │
+      │     └─ yield 工具执行结果 ...                                      │
+      │                                                                  │
+      │  ── 工具执行后 ────────────────────────────────────────────        │
       ├─ getAttachmentMessages()             ← queued commands 等动态上下文
-      ├─ 消费 memory prefetch 结果                                        │
-      ├─ 消费 skill discovery 结果                                        │
-      ├─ refreshTools()                      ← 刷新 MCP tools            │
+      ├─ 消费 memory prefetch 结果                                         │
+      ├─ 消费 skill discovery 结果                                         │
+      ├─ refreshTools()                      ← 刷新 MCP tools             │
       │                                                                   │
-      │  ── 停止 / 继续 ───────────────────────────────────────────     │
+      │  ── 停止 / 继续 ───────────────────────────────────────────        │
       ├─ maxTurns 达到? ──YES──→ return terminal                          │
       │                                                                   │
-      └─ 更新 state，继续循环 ─────────────────────────────────────────┘
+      └─ 更新 state，继续循环 ──────────────────────────────────────────────┘
   }
 ```
 

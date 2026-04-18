@@ -4,7 +4,22 @@
 
 ← [Back to Course Home](../README.md) | [中文版](../zh-cn/README.md)
 
----
+
+## Usage
+
+Clone the Claude Code source code, then clone this repo into the project root — so you can jump directly to source locations while reading the articles.
+
+```bash
+# 1. Clone Claude Code source code
+git clone claude-code codebase
+cd claude-code
+
+# 2. Clone this repo into the project root
+git clone https://github.com/kodytang666/learn-claude-code.git
+```
+
+After setup, file references in the articles (e.g. `src/query.ts`) can be opened directly in your IDE.
+
 
 ## Table of Contents
 

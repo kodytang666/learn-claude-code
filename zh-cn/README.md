@@ -4,12 +4,32 @@
 
 ← [返回文章首页](../README.md) | [English Version](../en-us/README.md)
 
----
+
+## 社交账号
+
+douyin ID： 286435703
+
+juejin column： https://juejin.cn/column/7629597189515247667
+
+## 使用方法
+
+Clone Claude Code 源码，然后在项目根目录下 clone 本仓库，即可在阅读文章时直接跳转到源码位置。
+
+```bash
+# 1. Clone Claude Code 源码
+git clone claude-code codebase
+cd claude-code
+
+# 2. 在项目根目录下 clone 本仓库
+git clone https://github.com/kodytang666/learn-claude-code.git
+```
+
+完成后，文章中引用的源码路径（如 `src/query.ts`）即可在 IDE 中直接跳转打开。
 
 ## 文章目录
 
 | 章节 | 文件 | 核心主题 |
-|------|------|----------|
+|||-|
 | 第 0 章 | [00-overview.md](00-overview.md) | 文章总览与 Agent 工作流全景 |
 | 第 1 章 | [01-agent-loop.md](01-agent-loop.md) | **Agent Loop**：主查询循环的核心引擎 |
 | 第 2 章 | [02-系统提示的构建机制.md](02-系统提示的构建机制.md) | **全局 Context Prompt**：系统提示的构建与优先级 |
