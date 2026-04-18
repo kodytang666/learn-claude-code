@@ -1,12 +1,12 @@
-# Claude Code 源码深度解析课程
+# Claude Code 源码深度解析
 
 > 基于 Claude Code 真实源码的 Agent 工程拆解。所有内容均来自对源码的直接分析。
 
 ---
 
-## 课程定位
+## 文章定位
 
-本课程面向两类读者：
+本文章面向两类读者：
 
 - **入门者**：从未开发过 Agent 系统，希望通过一个工业级真实案例理解 Agent 的完整工作原理
 - **进阶者**：已有 Agent 开发经验，希望深入理解 Claude Code 在 prompt cache、任务隔离、上下文压缩等方面的精妙设计
@@ -46,11 +46,11 @@ Claude Code 启动后，一次完整的用户交互按照如下顺序流转：
 
 ---
 
-## 课程目录
+## 文章目录
 
 | 章节 | 文件 | 核心主题 |
 |------|------|----------|
-| 第 0 章 | [00-overview.md](00-overview.md) | 课程总览与 Agent 工作流全景 |
+| 第 0 章 | [00-overview.md](00-overview.md) | 文章总览与 Agent 工作流全景 |
 | 第 1 章 | [01-agent-loop.md](01-agent-loop.md) | **Agent Loop**：主查询循环的核心引擎 |
 | 第 2 章 | [02-context-prompt.md](02-context-prompt.md) | **全局 Context Prompt**：系统提示的构建与优先级 |
 | 第 3 章 | [03-tool-system.md](03-tool-system.md) | **Tool System**：工具调用、权限与动态披露 |

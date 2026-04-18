@@ -1,4 +1,6 @@
-# Claude Code 源码深度解析课程
+# Claude Code 源码深度解析文章
+
+![封面](https://d3qyja3w7macx2.cloudfront.net/eyJidWNrZXQiOiJ1bXUuY29tIiwia2V5IjoicGljd2Vpa2UvdGVhY2hlci93ZWlrZS9FVmM5ZTQvMTc3NjQ5NTU4My42MzYuNTcyMzYuMjAwMjcyODUxLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjo4MDB9LCJyb3RhdGUiOjB9fQ==)
 
 > A deep-dive course into Claude Code's internals, built from direct source code analysis.
 > 基于 Claude Code 真实源码的 Agent 工程拆解。所有内容均来自对源码的直接分析。
@@ -14,7 +16,7 @@
 
 ---
 
-## Course Overview / 课程概览
+## Course Overview / 文章概览
 
 This course targets two audiences:
 
