@@ -234,31 +234,7 @@ async function* queryLoop(params: QueryParams) {
 
 ---
 
-## 1.5 Feature Gate 模式
-
-Claude Code 使用 Bun 的 `feature()` 函数实现**编译时功能开关**，未开启的功能在编译时不会被打包进来：
-
-[src/query.ts:15-21](../../src/query.ts#L15-L21)
-```typescript
-const reactiveCompact = feature('REACTIVE_COMPACT')
-  ? (require('./services/compact/reactiveCompact.js') as ...)
-  : null
-
-const contextCollapse = feature('CONTEXT_COLLAPSE')
-  ? (require('./services/contextCollapse/index.js') as ...)
-  : null
-```
-
-[src/query.ts:66-71](../../src/query.ts#L66-L71)
-```typescript
-const skillPrefetch = feature('EXPERIMENTAL_SKILL_SEARCH')
-  ? (require('./services/skillSearch/prefetch.js') as ...)
-  : null
-```
-
----
-
-## 1.6 max_output_tokens 错误恢复
+## 1.5 max_output_tokens 错误恢复
 
 Claude API 有时会因输出 token 达到上限而中断，Agent Loop 有专门的恢复机制：
 
@@ -283,7 +259,7 @@ function isWithheldMaxOutputTokens(msg): msg is AssistantMessage {
 
 ---
 
-## 1.7 异步生成器的妙用
+## 1.6 异步生成器的妙用
 
 `query()` 是一个 `AsyncGenerator`，它能同时做到：
 
@@ -307,7 +283,7 @@ export async function* query(params: QueryParams) {
 
 ---
 
-## 1.8 流程图
+## 1.7 流程图
 
 ```
 用户提交消息
